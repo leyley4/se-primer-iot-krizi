@@ -27,3 +27,11 @@ Hastane yoğun bakım ünitesindeki IoT yaşam destek cihazlarını izleyen yere
   * B) Sadece yerel şifreli logları cihaz üzerinde (edge) analiz et.
 * **Son A (İyi):** Sistem güvenli, cihazlar manuel de olsa çalışıyor, KVKK ihlali yok.
 * **Son B (Kötü):** Cihazlar kilitlendi, hasta verileri şifrelendi veya buluta aktarılırken dışarı sızdı.
+
+## Makine Öğrenmesi (ML) Adaptasyon Modeli
+- **Amaç:** Oyuncunun kriz anındaki karar verme süresine ve hatalarına bakarak "Yapay zeka ipucu vermeli mi?" (1 veya 0) kararını üreten göreve özel bir Karar Ağacı (Decision Tree) modeli.
+- **Kabul Eşiği (Eval Metric):** Modelin doğruluk (accuracy) oranı **en az %80** olmalıdır. Eşiğin altındaki modeller yayına alınmayacaktır.
+- **Kabul Örnekleri (Altın Standart):**
+  1. Yeni Başlayan (0), 45 saniye beklemiş, 2 hata yapmış -> İpucu Ver (1)
+  2. Deneyimli (1), 10 saniye beklemiş, 0 hata yapmış -> İpucu Verme (0)
+  3. Yeni Başlayan (0), 15 saniye beklemiş, 0 hata yapmış -> İpucu Verme (0)
